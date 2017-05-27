@@ -1,14 +1,14 @@
 import math
 
 def is_prime(candidate):
-    for number in range(2, math.ceil(candidate/2)):
+    for number in range(2, int(candidate ** 0.5) + 1):
         if candidate % number == 0:
             return False
 
     return True
 
 def factors(number_to_be_factored):
-    for factor_candidate in range(2, math.ceil(number_to_be_factored)): # brute force through all possible factors
+    for factor_candidate in range(2, int(number_to_be_factored ** 0.5) + 1): # brute force through all possible factors
         if number_to_be_factored % factor_candidate == 0:
             yield factor_candidate
 
