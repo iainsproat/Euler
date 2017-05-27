@@ -4,19 +4,15 @@ def largest_palindrome(num_digits):
     inputs = range(min_input, max_input)
     products = []
 
-    print(*inputs, sep='\n')
-
     print('Debug: max_input: {0}'.format(max_input))
     print('Debug: min_input: {0}'.format(min_input))
     for input1 in inputs:
-        for input2 in inputs: #TODO this doubles up items
+        for input2 in inputs: #TODO this doubles up items and could be optimised
             products.append(input1 * input2)
 
     largest_candidate = 0
 
     for candidate in products:
-        if candidate == 9009:
-            print('Debug: 9009 found: {0}'.format(candidate))
         if not candidate > largest_candidate:
             continue #move to the next candidate
         s = str(candidate)
@@ -28,10 +24,9 @@ def largest_palindrome(num_digits):
                 break
 
         if completed:
-            print('Debug: palindrome found: {0}'.format(candidate))
             largest_candidate = candidate
 
     return largest_candidate
 
 if __name__ == "__main__":
-    print(largest_palindrome(2))
+    print(largest_palindrome(3))
